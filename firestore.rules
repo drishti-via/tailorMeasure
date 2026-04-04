@@ -1,0 +1,17 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /tailors/{tailorId} {
+      allow read, write: if request.auth != null && request.auth.uid == tailorId;
+
+      match /patterns/{patternId} {
+        allow read, write: if request.auth != null && request.auth.uid == tailorId;
+      }
+
+      match /clients/{clientId} {
+        allow read, write: if request.auth != null && request.auth.uid == tailorId;
+      }
+    }
+  }
+}

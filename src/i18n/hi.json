@@ -1,0 +1,102 @@
+{
+  "app_name": "TailorMeasure",
+  "tagline": "दर्जी का साथी",
+  "login": {
+    "title": "स्वागत है",
+    "phone_label": "मोबाइल नंबर",
+    "phone_placeholder": "98XXXXXXXX",
+    "send_otp": "OTP भेजें",
+    "otp_label": "OTP डालें",
+    "verify": "सत्यापित करें",
+    "resend": "OTP दोबारा भेजें",
+    "sending": "भेज रहे हैं...",
+    "verifying": "सत्यापित हो रहा है..."
+  },
+  "nav": {
+    "dashboard": "होम",
+    "patterns": "डिज़ाइन",
+    "clients": "ग्राहक",
+    "logout": "लॉग आउट"
+  },
+  "dashboard": {
+    "greeting": "नमस्ते",
+    "clients": "ग्राहक",
+    "patterns": "डिज़ाइन",
+    "add_client": "नया ग्राहक",
+    "new_pattern": "नया डिज़ाइन",
+    "recent_clients": "हाल के ग्राहक"
+  },
+  "patterns": {
+    "title": "डिज़ाइन",
+    "new": "नया डिज़ाइन",
+    "empty": "अभी कोई डिज़ाइन नहीं। पहला डिज़ाइन बनाएं।",
+    "measurements": "नाप",
+    "formulas": "फ़ॉर्मूला",
+    "garment_type": {
+      "indian": "भारतीय",
+      "western": "पश्चिमी",
+      "both": "दोनों"
+    },
+    "edit": "संपादित करें",
+    "delete": "हटाएं"
+  },
+  "wizard": {
+    "step1": "नाप",
+    "step2": "फ़ॉर्मूला",
+    "step3": "समीक्षा",
+    "next": "आगे",
+    "back": "पीछे",
+    "save": "डिज़ाइन सहेजें",
+    "pattern_name": "डिज़ाइन का नाम",
+    "garment_type": "कपड़े का प्रकार",
+    "measurement_fields": "नाप के खाने",
+    "add_measurement": "नाप जोड़ें",
+    "field_name_en": "अंग्रेज़ी नाम",
+    "field_name_hi": "हिंदी नाम",
+    "unit": "इकाई",
+    "formula_fields": "फ़ॉर्मूला के खाने",
+    "add_formula": "फ़ॉर्मूला जोड़ें",
+    "formula_name_en": "अंग्रेज़ी नाम",
+    "formula_name_hi": "हिंदी नाम",
+    "formula_expression": "फ़ॉर्मूला",
+    "notes": "नोट्स (वैकल्पिक)",
+    "live_preview": "लाइव प्रीव्यू",
+    "sample_values": "नमूना मान",
+    "expression_valid": "सही",
+    "expression_error": "फ़ॉर्मूला में गड़बड़ी",
+    "review_measurements": "नाप के इनपुट",
+    "review_formulas": "फ़ॉर्मूला आउटपुट",
+    "pill_add_measurement": "नाप जोड़ें",
+    "pill_operators": "ऑपरेशन",
+    "pill_number": "संख्या"
+  },
+  "clients": {
+    "title": "ग्राहक",
+    "new": "ग्राहक जोड़ें",
+    "empty": "अभी कोई ग्राहक नहीं।",
+    "search": "ग्राहक खोजें...",
+    "name": "नाम",
+    "phone": "फ़ोन",
+    "save": "ग्राहक सहेजें",
+    "measurement_sets": "नाप का इतिहास",
+    "new_measurement": "नया नाप",
+    "no_measurements": "अभी कोई नाप नहीं।"
+  },
+  "measure": {
+    "title": "नाप लें",
+    "select_pattern": "डिज़ाइन चुनें",
+    "enter_values": "नाप डालें",
+    "compute": "गणना करें",
+    "results": "गणना के परिणाम",
+    "save_results": "सहेजें",
+    "saved": "सहेजा गया!"
+  },
+  "common": {
+    "cancel": "रद्द करें",
+    "delete_confirm": "क्या आप sure हैं?",
+    "loading": "लोड हो रहा है...",
+    "error": "कुछ गड़बड़ हो गई।",
+    "inches": "इंच",
+    "cm": "सेमी"
+  }
+}

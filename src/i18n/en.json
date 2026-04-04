@@ -1,0 +1,102 @@
+{
+  "app_name": "TailorMeasure",
+  "tagline": "Your tailoring companion",
+  "login": {
+    "title": "Welcome",
+    "phone_label": "Mobile Number",
+    "phone_placeholder": "98XXXXXXXX",
+    "send_otp": "Send OTP",
+    "otp_label": "Enter OTP",
+    "verify": "Verify",
+    "resend": "Resend OTP",
+    "sending": "Sending...",
+    "verifying": "Verifying..."
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "patterns": "Patterns",
+    "clients": "Clients",
+    "logout": "Logout"
+  },
+  "dashboard": {
+    "greeting": "Namaste",
+    "clients": "Clients",
+    "patterns": "Patterns",
+    "add_client": "Add New Client",
+    "new_pattern": "New Pattern",
+    "recent_clients": "Recent Clients"
+  },
+  "patterns": {
+    "title": "Patterns",
+    "new": "New Pattern",
+    "empty": "No patterns yet. Create your first pattern.",
+    "measurements": "measurements",
+    "formulas": "formula fields",
+    "garment_type": {
+      "indian": "Indian",
+      "western": "Western",
+      "both": "Both"
+    },
+    "edit": "Edit",
+    "delete": "Delete"
+  },
+  "wizard": {
+    "step1": "Measurements",
+    "step2": "Formulas",
+    "step3": "Review",
+    "next": "Next",
+    "back": "Back",
+    "save": "Save Pattern",
+    "pattern_name": "Pattern Name",
+    "garment_type": "Garment Type",
+    "measurement_fields": "Measurement Fields",
+    "add_measurement": "Add measurement",
+    "field_name_en": "English Name",
+    "field_name_hi": "Hindi Name",
+    "unit": "Unit",
+    "formula_fields": "Formula Fields",
+    "add_formula": "Add formula field",
+    "formula_name_en": "English Name",
+    "formula_name_hi": "Hindi Name",
+    "formula_expression": "Formula",
+    "notes": "Notes (optional)",
+    "live_preview": "Live Preview",
+    "sample_values": "Sample values",
+    "expression_valid": "Valid",
+    "expression_error": "Error in formula",
+    "review_measurements": "Measurement Inputs",
+    "review_formulas": "Formula Outputs",
+    "pill_add_measurement": "Add measurement",
+    "pill_operators": "Operations",
+    "pill_number": "Number"
+  },
+  "clients": {
+    "title": "Clients",
+    "new": "Add Client",
+    "empty": "No clients yet.",
+    "search": "Search clients...",
+    "name": "Name",
+    "phone": "Phone",
+    "save": "Save Client",
+    "measurement_sets": "Measurement History",
+    "new_measurement": "New Measurement",
+    "no_measurements": "No measurements recorded yet."
+  },
+  "measure": {
+    "title": "Take Measurements",
+    "select_pattern": "Select Pattern",
+    "enter_values": "Enter Measurements",
+    "compute": "Compute",
+    "results": "Computed Results",
+    "save_results": "Save",
+    "saved": "Saved!"
+  },
+  "common": {
+    "cancel": "Cancel",
+    "delete_confirm": "Are you sure?",
+    "loading": "Loading...",
+    "error": "Something went wrong.",
+    "inches": "inches",
+    "cm": "cm"
+  }
+}
