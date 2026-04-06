@@ -1,6 +1,6 @@
 import { initializeApp } from 'firebase/app'
 import { getAuth, browserLocalPersistence, setPersistence } from 'firebase/auth'
-import { getFirestore, enableIndexedDbPersistence } from 'firebase/firestore'
+import { initializeFirestore, persistentLocalCache } from 'firebase/firestore'
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
@@ -13,10 +13,11 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig)
 export const auth = getAuth(app)
-export const db = getFirestore(app)
+
+// Use persistent cache (modern API) so Firestore reads are fast on repeat visits
+export const db = initializeFirestore(app, {
+  localCache: persistentLocalCache(),
+})
 
 // Persist auth across page reloads (resolves from cache, not network)
 setPersistence(auth, browserLocalPersistence).catch(() => {})
-
-// Cache Firestore reads offline so repeat visits load instantly
-enableIndexedDbPersistence(db).catch(() => {})
