@@ -38,14 +38,13 @@ export default function PatternWizard() {
     })
   }, [id, isEdit, user])
 
-  function save() {
+  async function save() {
     setSaving(true)
     const data = { name, garmentType, measurementFields, formulaFields }
-    if (isEdit) {
-      setDoc(doc(db, 'tailors', user.uid, 'patterns', id), data, { merge: true }).catch(() => {})
-    } else {
-      addDoc(collection(db, 'tailors', user.uid, 'patterns'), data).catch(() => {})
-    }
+    const writeOp = isEdit
+      ? setDoc(doc(db, 'tailors', user.uid, 'patterns', id), data, { merge: true })
+      : addDoc(collection(db, 'tailors', user.uid, 'patterns'), data)
+    await Promise.race([writeOp, new Promise(r => setTimeout(r, 1500))]).catch(() => {})
     navigate('/patterns')
   }
 

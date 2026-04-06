@@ -56,7 +56,7 @@ export default function MeasureClient() {
     setComputed(true)
   }
 
-  function saveResults() {
+  async function saveResults() {
     setSaving(true)
     const set = {
       patternId,
@@ -64,12 +64,15 @@ export default function MeasureClient() {
       values,
       createdAt: new Date().toISOString(),
     }
-    updateDoc(doc(db, 'tailors', user.uid, 'clients', id), {
-      measurementSets: arrayUnion(set),
-    }).catch(() => {})
+    await Promise.race([
+      updateDoc(doc(db, 'tailors', user.uid, 'clients', id), {
+        measurementSets: arrayUnion(set),
+      }),
+      new Promise(r => setTimeout(r, 1500)),
+    ]).catch(() => {})
     setSaved(true)
     setSaving(false)
-    setTimeout(() => navigate(`/clients/${id}`), 1000)
+    setTimeout(() => navigate(`/clients/${id}`), 500)
   }
 
   const lang = i18n.language

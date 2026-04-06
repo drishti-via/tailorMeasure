@@ -14,14 +14,17 @@ export default function ClientNew() {
   const [phone, setPhone] = useState('')
   const [saving, setSaving] = useState(false)
 
-  function save() {
+  async function save() {
     if (!name.trim() || !phone.trim()) return
     setSaving(true)
-    addDoc(collection(db, 'tailors', user.uid, 'clients'), {
-      name: name.trim(),
-      phone: phone.trim(),
-      measurementSets: [],
-    }).catch(() => {})
+    await Promise.race([
+      addDoc(collection(db, 'tailors', user.uid, 'clients'), {
+        name: name.trim(),
+        phone: phone.trim(),
+        measurementSets: [],
+      }),
+      new Promise(r => setTimeout(r, 1500)),
+    ]).catch(() => {})
     navigate('/clients')
   }
 
