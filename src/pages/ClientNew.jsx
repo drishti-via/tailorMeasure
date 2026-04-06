@@ -14,14 +14,14 @@ export default function ClientNew() {
   const [phone, setPhone] = useState('')
   const [saving, setSaving] = useState(false)
 
-  async function save() {
+  function save() {
     if (!name.trim() || !phone.trim()) return
     setSaving(true)
-    await addDoc(collection(db, 'tailors', user.uid, 'clients'), {
+    addDoc(collection(db, 'tailors', user.uid, 'clients'), {
       name: name.trim(),
       phone: phone.trim(),
       measurementSets: [],
-    })
+    }).catch(() => {})
     navigate('/clients')
   }
 

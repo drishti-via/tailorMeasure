@@ -56,7 +56,7 @@ export default function MeasureClient() {
     setComputed(true)
   }
 
-  async function saveResults() {
+  function saveResults() {
     setSaving(true)
     const set = {
       patternId,
@@ -64,9 +64,9 @@ export default function MeasureClient() {
       values,
       createdAt: new Date().toISOString(),
     }
-    await updateDoc(doc(db, 'tailors', user.uid, 'clients', id), {
+    updateDoc(doc(db, 'tailors', user.uid, 'clients', id), {
       measurementSets: arrayUnion(set),
-    })
+    }).catch(() => {})
     setSaved(true)
     setSaving(false)
     setTimeout(() => navigate(`/clients/${id}`), 1000)
