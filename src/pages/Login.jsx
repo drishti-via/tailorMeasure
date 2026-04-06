@@ -20,6 +20,9 @@ export default function Login() {
     setError('')
     setLoading(true)
     try {
+      if (window.__e2e__) {
+        auth.settings.appVerificationDisabledForTesting = true
+      }
       if (!window.recaptchaVerifier) {
         window.recaptchaVerifier = new RecaptchaVerifier(auth, 'recaptcha-container', {
           size: 'invisible',

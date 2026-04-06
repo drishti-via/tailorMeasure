@@ -10,6 +10,7 @@ test('redirects unauthenticated user to login', async ({ page }) => {
 })
 
 test('login with test phone number lands on dashboard', async ({ page }) => {
+  await page.addInitScript(() => { window.__e2e__ = true })
   await page.goto('login')
 
   await page.fill('input[type="tel"]', '9999999999')

@@ -9,6 +9,7 @@ setup('authenticate', async ({ page }) => {
   // Ensure auth directory exists
   fs.mkdirSync(path.dirname(authFile), { recursive: true })
 
+  await page.addInitScript(() => { window.__e2e__ = true })
   await page.goto('login')
   await expect(page).toHaveURL(/login/)
 
