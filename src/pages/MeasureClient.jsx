@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { doc, getDoc, updateDoc, arrayUnion } from 'firebase/firestore'
+import { doc, onSnapshot, updateDoc, arrayUnion } from 'firebase/firestore'
 import { evaluate } from 'mathjs'
 import { db } from '../firebase'
 import { useAuth } from '../hooks/useAuth'
@@ -39,7 +39,7 @@ export default function MeasureClient() {
 
   useEffect(() => {
     if (!patternId || !user) return
-    getDoc(doc(db, 'tailors', user.uid, 'patterns', patternId)).then((snap) => {
+    return onSnapshot(doc(db, 'tailors', user.uid, 'patterns', patternId), (snap) => {
       if (snap.exists()) {
         setPattern({ id: snap.id, ...snap.data() })
         setValues({})
