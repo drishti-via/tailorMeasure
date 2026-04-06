@@ -51,11 +51,15 @@ export default function Login() {
     try {
       const result = await confirmRef.current.confirm(code)
       const uid = result.user.uid
-      // Create tailor doc if first login
-      const ref = doc(db, 'tailors', uid)
-      const snap = await getDoc(ref)
-      if (!snap.exists()) {
-        await setDoc(ref, { phone: result.user.phoneNumber, language: 'en', name: '', shopName: '' })
+      // Create tailor doc if first login — non-fatal if it fails
+      try {
+        const ref = doc(db, 'tailors', uid)
+        const snap = await getDoc(ref)
+        if (!snap.exists()) {
+          await setDoc(ref, { phone: result.user.phoneNumber, language: 'en', name: '', shopName: '' })
+        }
+      } catch {
+        // Auth succeeded; Firestore doc creation will be retried on next load
       }
       navigate('/dashboard')
     } catch (e) {
@@ -72,15 +76,19 @@ export default function Login() {
       const provider = new GoogleAuthProvider()
       const result = await signInWithPopup(auth, provider)
       const uid = result.user.uid
-      const ref = doc(db, 'tailors', uid)
-      const snap = await getDoc(ref)
-      if (!snap.exists()) {
-        await setDoc(ref, {
-          name: result.user.displayName ?? '',
-          phone: '',
-          language: 'en',
-          shopName: '',
-        })
+      try {
+        const ref = doc(db, 'tailors', uid)
+        const snap = await getDoc(ref)
+        if (!snap.exists()) {
+          await setDoc(ref, {
+            name: result.user.displayName ?? '',
+            phone: '',
+            language: 'en',
+            shopName: '',
+          })
+        }
+      } catch {
+        // Auth succeeded; Firestore doc creation will be retried on next load
       }
       navigate('/dashboard')
     } catch (e) {
