@@ -23,6 +23,9 @@ test('login with test phone number lands on dashboard', async ({ page }) => {
     await boxes.nth(i).fill(otpDigits[i])
   }
 
+  // Click the Verify button to submit OTP
+  await page.click('button:has-text("Verify")')
+
   await expect(page).toHaveURL(/dashboard/, { timeout: 15000 })
   await expect(page.locator('text=TailorMeasure')).toBeVisible()
 })
