@@ -24,3 +24,7 @@ dist-ssr
 *.sw?
 .env
 .superpowers
+
+e2e/.auth/
+playwright-report/
+test-results/
