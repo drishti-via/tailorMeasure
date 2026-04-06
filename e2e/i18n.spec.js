@@ -2,7 +2,7 @@
 import { test, expect } from '@playwright/test'
 
 test('language toggle switches UI between English and Hindi', async ({ page }) => {
-  await page.goto('/dashboard')
+  await page.goto('dashboard')
 
   // Verify English nav label
   await expect(page.locator('.bottom-nav a:has-text("Clients")')).toBeVisible()

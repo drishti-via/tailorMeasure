@@ -9,7 +9,7 @@ setup('authenticate', async ({ page }) => {
   // Ensure auth directory exists
   fs.mkdirSync(path.dirname(authFile), { recursive: true })
 
-  await page.goto('/login')
+  await page.goto('login')
   await expect(page).toHaveURL(/login/)
 
   // Enter phone number

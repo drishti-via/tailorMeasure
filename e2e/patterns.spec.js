@@ -5,7 +5,7 @@ import { uniqueName } from './fixtures/test-data.js'
 test('create a new pattern end-to-end', async ({ page }) => {
   const patternName = uniqueName('E2E Pattern')
 
-  await page.goto('/dashboard')
+  await page.goto('dashboard')
 
   // Navigate to new pattern wizard
   await page.click('button:has-text("New Pattern")')
@@ -62,7 +62,7 @@ test('edit an existing pattern name', async ({ page }) => {
   const updatedName = originalName + ' Updated'
 
   // First create a minimal pattern to edit
-  await page.goto('/patterns/new')
+  await page.goto('patterns/new')
   await page.fill('input[placeholder="e.g. Ladies Salwar Kameez"]', originalName)
   await page.click('button:has-text("Next")')
   await page.click('button:has-text("Next")')

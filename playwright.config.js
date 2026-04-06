@@ -7,7 +7,7 @@ export default defineConfig({
   retries: 1,
   reporter: [['html'], ['list']],
   use: {
-    baseURL: 'https://drishti-via.github.io/tailorMeasure',
+    baseURL: 'https://drishti-via.github.io/tailorMeasure/',
     navigationTimeout: 15000,
     actionTimeout: 10000,
     video: 'retain-on-failure',

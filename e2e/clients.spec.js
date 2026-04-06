@@ -5,7 +5,7 @@ import { uniqueName } from './fixtures/test-data.js'
 test('add a new client', async ({ page }) => {
   const clientName = uniqueName('E2E Client')
 
-  await page.goto('/clients/new')
+  await page.goto('clients/new')
 
   await page.fill('input[placeholder="Priya Sharma"]', clientName)
   await page.fill('input[type="tel"]', '9876543210')
@@ -20,7 +20,7 @@ test('take measurement for a client and view history', async ({ page }) => {
   const patternName = uniqueName('E2E Measure Pattern')
 
   // Create a pattern with one measurement field and one formula
-  await page.goto('/patterns/new')
+  await page.goto('patterns/new')
   await page.fill('input[placeholder="e.g. Ladies Salwar Kameez"]', patternName)
   await page.click('button:has-text("Add measurement")')
   const rows = page.locator('table tbody tr')
@@ -39,7 +39,7 @@ test('take measurement for a client and view history', async ({ page }) => {
   await expect(page).toHaveURL(/\/patterns$/, { timeout: 10000 })
 
   // Create client
-  await page.goto('/clients/new')
+  await page.goto('clients/new')
   await page.fill('input[placeholder="Priya Sharma"]', clientName)
   await page.fill('input[type="tel"]', '9876543211')
   await page.click('button:has-text("Save Client")')

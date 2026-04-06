@@ -5,12 +5,12 @@ import { test, expect } from '@playwright/test'
 test.use({ storageState: { cookies: [], origins: [] } })
 
 test('redirects unauthenticated user to login', async ({ page }) => {
-  await page.goto('/')
+  await page.goto('')
   await expect(page).toHaveURL(/login/)
 })
 
 test('login with test phone number lands on dashboard', async ({ page }) => {
-  await page.goto('/login')
+  await page.goto('login')
 
   await page.fill('input[type="tel"]', '9999999999')
   await page.click('button:has-text("Send OTP")')
