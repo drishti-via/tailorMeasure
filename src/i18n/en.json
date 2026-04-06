@@ -10,7 +10,8 @@
     "verify": "Verify",
     "resend": "Resend OTP",
     "sending": "Sending...",
-    "verifying": "Verifying..."
+    "verifying": "Verifying...",
+    "google": "Sign in with Google"
   },
   "nav": {
     "dashboard": "Dashboard",
