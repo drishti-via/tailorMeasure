@@ -1,6 +1,6 @@
 import { useParams, useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { doc, getDoc } from 'firebase/firestore'
+import { doc, onSnapshot } from 'firebase/firestore'
 import { db } from '../firebase'
 import { useAuth } from '../hooks/useAuth'
 import { useCollection } from '../hooks/useFirestore'
@@ -16,7 +16,7 @@ export default function ClientDetail() {
 
   useEffect(() => {
     if (!user) return
-    getDoc(doc(db, 'tailors', user.uid, 'clients', id)).then((snap) => {
+    return onSnapshot(doc(db, 'tailors', user.uid, 'clients', id), (snap) => {
       if (snap.exists()) setClient({ id: snap.id, ...snap.data() })
     })
   }, [user, id])

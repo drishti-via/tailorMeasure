@@ -66,6 +66,6 @@ test('take measurement for a client and view history', async ({ page }) => {
   await page.click('button:has-text("Save")')
   await expect(page).toHaveURL(/\/clients\/.+$/, { timeout: 10000 })
 
-  // Verify measurement appears in history
-  await expect(page.locator(`text=${patternName}`)).toBeVisible()
+  // Verify measurement appears in history (scoped to cards, not the hidden select option)
+  await expect(page.locator('.card').filter({ hasText: patternName })).toBeVisible()
 })
