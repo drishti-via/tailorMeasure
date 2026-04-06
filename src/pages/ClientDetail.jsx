@@ -57,7 +57,7 @@ export default function ClientDetail() {
             <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 8 }}>
               <span style={{ fontWeight: 600 }}>{s.patternName}</span>
               <span style={{ fontSize: 12, color: 'var(--text-muted)' }}>
-                {s.createdAt?.toDate ? s.createdAt.toDate().toLocaleDateString() : ''}
+                {s.createdAt ? new Date(s.createdAt).toLocaleDateString() : ''}
               </span>
             </div>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>

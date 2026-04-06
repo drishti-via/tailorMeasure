@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { doc, getDoc, updateDoc, arrayUnion, serverTimestamp } from 'firebase/firestore'
+import { doc, getDoc, updateDoc, arrayUnion } from 'firebase/firestore'
 import { evaluate } from 'mathjs'
 import { db } from '../firebase'
 import { useAuth } from '../hooks/useAuth'
@@ -62,7 +62,7 @@ export default function MeasureClient() {
       patternId,
       patternName: pattern.name,
       values,
-      createdAt: serverTimestamp(),
+      createdAt: new Date().toISOString(),
     }
     await updateDoc(doc(db, 'tailors', user.uid, 'clients', id), {
       measurementSets: arrayUnion(set),
