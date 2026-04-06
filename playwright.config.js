@@ -8,6 +8,8 @@ export default defineConfig({
   reporter: [['html'], ['list']],
   use: {
     baseURL: 'https://drishti-via.github.io/tailorMeasure',
+    navigationTimeout: 15000,
+    actionTimeout: 10000,
     video: 'retain-on-failure',
     screenshot: 'only-on-failure',
   },
