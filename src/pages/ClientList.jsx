@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { useAuth } from '../hooks/useAuth'
-import { useCollection } from '../hooks/useFirestore'
+import { useCollection, deleteDocument } from '../hooks/useFirestore'
 import NavBar from '../components/NavBar'
 
 export default function ClientList() {
@@ -11,6 +11,12 @@ export default function ClientList() {
   const navigate = useNavigate()
   const { docs: clients, loading } = useCollection(user ? `tailors/${user.uid}/clients` : null)
   const [search, setSearch] = useState('')
+
+  async function handleDelete(e, id) {
+    e.stopPropagation()
+    if (!window.confirm(t('common.delete_confirm'))) return
+    await deleteDocument(`tailors/${user.uid}/clients`, id)
+  }
 
   const filtered = clients.filter((c) =>
     c.name?.toLowerCase().includes(search.toLowerCase()) ||
@@ -50,7 +56,10 @@ export default function ClientList() {
               <div className="list-item-title">{c.name}</div>
               <div className="list-item-sub">📱 {c.phone}</div>
             </div>
-            <span style={{ color: 'var(--primary)', fontSize: 20 }}>›</span>
+            <div style={{ display: 'flex', gap: 6 }}>
+              <button className="btn-danger" onClick={(e) => handleDelete(e, c.id)}>{t('patterns.delete')}</button>
+              <span style={{ color: 'var(--primary)', fontSize: 20 }}>›</span>
+            </div>
           </div>
         ))}
       </div>
